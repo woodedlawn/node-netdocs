@@ -1,1 +1,22 @@
- 
+{
+  "name": "node-netdocs",
+  "version": "0.0.1",
+  "description": "NetDocuments API interface for node.js",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/woodedlawn/node-netdocs.git"
+  },
+  "author": "Jonathan <jonathan@woodedlawn.com>",
+  "license": "",
+  "devDependencies": {
+			"mocha": "",
+			"should": ""
+	}
+}
