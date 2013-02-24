@@ -6,30 +6,35 @@ var sendSoap = require('../lib/tools/send-soap');
 describe('tools/', function() {
 
 	describe('build-soap', function() {
-			var a = 'path'
-				, b = 'action'
-				, c = 'request string';
-				
+		var a = 'path'
+			, b = 'action'
+			, c = 'request string'
+			, str
+			, obj
+			, rtn;
+			
+		it('should accept 4 arguments (path, action, request, fn)', function(done) {
+
 			buildSoap(a, b, c, function(d, e) {
-
-				it('should accept 4 arguments (3 variables and a callback function)', function() {});
-
-				it('should return the callback function object', function() {
-					this.should.be.an.instanceOf(Object);
-				});
-			
-				it('should contain the NetDocs soapEnvelope string', function() {
-					var type = typeof d;
-					type.should.be.a('string');
-				});
-			
-				it('should contain the request options object', function() {
-					e.should.be.an.instanceOf(Object);
-					e.host.should.equal('vault.netvoyage.com');
-					e.port.should.equal(443);
-				});
-
+				rtn = this;
+				str = d;
+				obj = e;
+				done();
 			});
+
+		});
+
+
+		it('should return the callback function containing the NetDocs soapEnvelope string and the request options object', function() {
+			rtn.should.be.an.instanceOf(Object);
+
+			var type = typeof str;
+			type.should.be.a('string');
+
+			obj.should.be.an.instanceOf(Object);
+			obj.host.should.equal('vault.netvoyage.com');
+			obj.port.should.equal(443);
+		});
 
 	});
 
@@ -39,9 +44,9 @@ describe('tools/', function() {
 
 		var a = 'test'
 			, b = { host: 'www.google.com',	port: 443 }
-			, res = [];
+			, res;
 		
-		it('should accept 3 arguments (2 variables and a callback function)', function(done) {
+		it('should accept 3 arguments (soapEnvelope, options, fn)', function(done) {
 		
 			sendSoap(a, b, function(c) {
 				res = c;
@@ -51,13 +56,9 @@ describe('tools/', function() {
 		
 		});
 		
-		it('should return the callback function object', function() {		
+		it('should return the callback function containing the response object', function() {		
 		
 			res.should.be.an.instanceOf(Object);
-		});
-		
-		it('should contain the response object', function() {		
-		
 			res.should.have.header('set-cookie');
 		});
 
