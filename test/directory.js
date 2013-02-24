@@ -1,6 +1,7 @@
+/*
+ * Module Dependancies
+ */
 var should = require('should');
-
-
 var login = require('../lib/directory/login');
 
 
