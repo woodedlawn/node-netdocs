@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha -R spec test/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "devDependencies": {
 			"mocha": "",
 			"should": ""
+	},
+	"dependencies": {
+			"follow-redirects": "",
+			"xml2js": ""
 	}
 }
