@@ -33,9 +33,10 @@ describe('tools/', function() {
 			var type = typeof str;
 			type.should.be.a('string');
 
-			obj.should.be.an.instanceOf(Object);
+			obj.should.be.a('object');
 			obj.host.should.equal('vault.netvoyage.com');
 			obj.port.should.equal(443);
+			obj.headers.should.be.ok;
 		});
 
 	});
@@ -45,24 +46,37 @@ describe('tools/', function() {
 		
 
 		var a = 'test'
-			, b = { host: 'www.google.com',	port: 443 }
+			, b = { host: 'www.google.com',	port: 443, headers: '' }
 			, res;
 		
 		it('should accept 3 arguments (soapEnvelope, options, fn)', function(done) {
 		
 			sendSoap(a, b, function(c) {
 				res = c;
-				this.should.be.an.instanceOf(Object);
+				this.should.be.a('object');
 				done();
 			});
 		
 		});
 		
-		it('should return the callback function containing the response object', function() {		
+		it('should return the callback function containing the response object if a cookie is not present in the request options object', function() {		
 		
-			res.should.be.an.instanceOf(Object);
+			res.should.be.a('object');
 			res.should.have.header('set-cookie');
 		});
+		
+		
+		it('should return xml data if a cookie is present in the request options object', function(done) {
+		
+			b.headers.Cookie = 'test';
+			sendSoap(a, b, function(c) {
+				var type = typeof c;
+				type.should.be.a('string');
+				done();
+			});
+			
+		});
+		
 
 	});
 });
