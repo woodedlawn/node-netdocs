@@ -2,8 +2,7 @@
  * Module Dependancies
  */
 var should = require('should');
-var login = require('../lib/directory/login');
-var getAttrD = require('../lib/directory/getAttributes');
+var nd = require('../');
 
 
 describe('directory/', function() {
@@ -17,7 +16,7 @@ describe('directory/', function() {
 
 			this.timeout(6000);
 		
-			login(usr, pwd, function(data) {
+			nd.directory.login(usr, pwd, function(data) {
 				result = data;
 				done();
 			});
@@ -41,7 +40,7 @@ describe('directory/', function() {
 
 			this.timeout(6000);
 		
-			getAttrD(cookies, objId, attr, function(data) {
+			nd.directory.getAttributes(cookies, objId, attr, function(data) {
 				result = data;
 				done();
 			});

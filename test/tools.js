@@ -1,9 +1,10 @@
 /*
  * Module Dependancies
  */
-var should = require('should');
-var buildSoap = require('../lib/tools/build-soap');
-var sendSoap = require('../lib/tools/send-soap');
+var should = require('should')
+	, buildSoap = require('../lib/tools/build-soap')
+	, sendSoap = require('../lib/tools/send-soap')
+	, parseSoap = require('../lib/tools/send-soap');
 
 describe('tools/', function() {
 
