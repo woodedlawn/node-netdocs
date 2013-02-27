@@ -5,9 +5,9 @@ var should = require('should');
 var nd = require('../');
 
 
-describe('directory/', function() {
+describe('directory', function() {
 
-	describe('login', function() {
+	describe('.login', function() {
 		var usr = 'username'
 			, pwd = 'password'
 			, result;
@@ -30,7 +30,7 @@ describe('directory/', function() {
 
 	});
 	
-	describe('getAttributes', function() {
+	describe('.getAttributes', function() {
 		var cookies = 'test-cookie'
 			, objId = '' //blank for current user
 			, attr = ['guid'] //this returns the id of the user object for user 

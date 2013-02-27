@@ -11,33 +11,32 @@ describe('tools/', function() {
 	describe('build-soap', function() {
 		var a = 'path'
 			, b = 'action'
-			, c = 'request string'
-			, str
-			, obj
-			, rtn;
+			, c = 'request string';
 			
 		it('should accept 4 arguments (path, action, request, fn)', function(done) {
 
 			buildSoap(a, b, c, function(d, e) {
-				rtn = this;
-				str = d;
-				obj = e;
 				done();
 			});
 
 		});
 
 
-		it('should return the callback function containing the NetDocs soapEnvelope string and the request options object', function() {
-			rtn.should.be.an.instanceOf(Object);
+		it('should return the callback function containing the NetDocs soapEnvelope string and the request options object', function(done) {
+		
+			buildSoap(a, b, c, function(d, e) {
 
-			var type = typeof str;
-			type.should.be.a('string');
+				this.should.be.a('object');
 
-			obj.should.be.a('object');
-			obj.host.should.equal('vault.netvoyage.com');
-			obj.port.should.equal(443);
-			obj.headers.should.be.ok;
+				var type = typeof d;
+				type.should.be.a('string');
+
+				e.should.be.a('object');
+				e.host.should.equal('vault.netvoyage.com');
+				e.port.should.equal(443);
+				e.headers.should.be.ok;
+				done();
+			});
 		});
 
 	});
@@ -47,30 +46,35 @@ describe('tools/', function() {
 		
 
 		var a = 'test'
-			, b = { host: 'www.google.com',	port: 443, headers: '' }
-			, res;
+			, b = { host: 'www.google.com',	port: 443, headers: '' };
 		
 		it('should accept 3 arguments (soapEnvelope, options, fn)', function(done) {
 		
 			sendSoap(a, b, function(c) {
-				res = c;
-				this.should.be.a('object');
 				done();
 			});
 		
 		});
 		
-		it('should return the callback function containing the response object if a cookie is not present in the request options object', function() {		
+		it('should return the callback function containing the response object if a cookie is not present in the request options object', function(done) {		
 		
-			res.should.be.a('object');
-			res.should.have.header('set-cookie');
+			sendSoap(a, b, function(c) {
+			
+				this.should.be.a('object');
+				
+				c.should.be.a('object');
+				c.should.have.header('set-cookie');
+				done();
+			});
 		});
 		
 		
 		it('should return xml data if a cookie is present in the request options object', function(done) {
 		
 			b.headers.Cookie = 'test';
+			
 			sendSoap(a, b, function(c) {
+			
 				var type = typeof c;
 				type.should.be.a('string');
 				done();
@@ -78,6 +82,15 @@ describe('tools/', function() {
 			
 		});
 		
-
 	});
+
+	
+	describe('parse-soap', function() {
+		
+		it('should accept 4 arguments (data, action, index, fn)');
+		it('should accept an xml string and return json');
+		it('should accept a netdocs soap response and return the (soapAction)Response section');
+		it('should return objects containing key/value pairs generated from index argument and response xml');
+	});
+
 });
