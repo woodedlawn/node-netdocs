@@ -4,7 +4,8 @@
 var should = require('should')
 	, buildSoap = require('../lib/tools/build-soap')
 	, sendSoap = require('../lib/tools/send-soap')
-	, parseSoap = require('../lib/tools/send-soap');
+	, parseSoap = require('../lib/tools/parse-soap')
+	, ndSoap = require('../lib/tools/nd-soap');
 
 describe('tools/', function() {
 
@@ -86,6 +87,14 @@ describe('tools/', function() {
 
 	
 	describe('parse-soap', function() {
+		
+		it('should accept 4 arguments (data, action, index, fn)');
+		it('should accept an xml string and return json');
+		it('should accept a netdocs soap response and return the (soapAction)Response section');
+		it('should return objects containing key/value pairs generated from index argument and response xml');
+	});
+	
+	describe('nd-soap', function() {
 		
 		it('should accept 4 arguments (data, action, index, fn)');
 		it('should accept an xml string and return json');
