@@ -7,7 +7,7 @@ To provide access to the NetDocuments Soap API within node.js applications.
 
 ## Overview
 
-Includes javascript functions which accept:
+Javascript functions which accept:
 
 * variables as described in the NetDocuments API documentation
 * authentication cookies as needed
