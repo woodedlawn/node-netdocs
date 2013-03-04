@@ -132,7 +132,7 @@ __RemoveFromFolder__
 	
 	returns an empty reponse on success
 
-__DeleteFromFolder__
+__DeleteFolder__
 
 	storage.deleteFolder(cookies, folderId, deleteFolder, subFoldersAlso, deleteContent, fn)
 	
