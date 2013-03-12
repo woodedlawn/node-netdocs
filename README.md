@@ -143,3 +143,12 @@ __DeleteFolder__
 	deleteContent = boolean
 	
 	returns an empty reponse on success
+	
+__RetrieveLookupData__
+
+	storage.retrieveLookupData(cookies, , fn)
+	
+	cookies = array of cookies
+	attrNum = integer
+	
+	returns an object
