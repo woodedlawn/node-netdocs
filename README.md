@@ -93,6 +93,18 @@ __Create__
 	oAttr = object of attributes(keys) and values
 
 	returns a string containing new object id
+	
+__CreateDocumentB__
+
+	storage.createDocB(cookies, name, base64binary, cabGuid, oAttr, fn)
+	
+	cookies = array of cookies
+	name = string
+	cabGuid = string
+	base64binary = string
+	oAttr = object of attributes(keys) and values
+
+	returns a string containing new object id
 
 __Delete__
 
