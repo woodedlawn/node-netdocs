@@ -1,6 +1,6 @@
 {
   "name": "node-netdocs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "NetDocuments API interface for node.js",
   "main": "lib/index.js",
   "directories": {
