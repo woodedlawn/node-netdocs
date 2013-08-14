@@ -24,7 +24,7 @@ describe('directory', function() {
 		
 	
 		it('should return the callback function with an object containing 1 or more cookies', function(){
-			result.should.be.a('object');
+			result.should.be.a('string');
 			result.length.should.be.above(0);
 		});
 
