@@ -158,7 +158,7 @@ __DeleteFolder__
 	
 __RetrieveLookupData__
 
-	storage.retrieveLookupData(cookies, , fn)
+	storage.retrieveLookupData(cookies, attrNum, fn)
 	
 	cookies = array of cookies
 	attrNum = integer
