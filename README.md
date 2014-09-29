@@ -3,7 +3,7 @@ node-netdocs [![Build Status](https://travis-ci.org/woodedlawn/node-netdocs.png?
 
 ## Purpose
 
-To provide access to the NetDocuments Soap API within node.js applications.
+To provide access to the NetDocuments Soap API within node.js applications. Now that NetDocs has a REST API, this is obsolete.
 
 ## Overview
 
